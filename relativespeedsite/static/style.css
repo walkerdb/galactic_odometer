@@ -1,0 +1,34 @@
+body {
+    background-image: url("background1.jpg");
+    color: white;
+    font-family: "Open sans", "sans-serif";
+    font-weight: 300;
+}
+
+h1, h2 {
+    font-family: "Crimson text", "serif";
+}
+
+.facts {
+    font-size: 1.2em;
+}
+
+.distance {
+    font-weight: bold;
+    color: #22c122;
+    text-shadow: 1px 1px 5px black;
+}
+
+.total_distance {
+    font-weight: bold;
+    color: deepskyblue;
+    text-shadow: 1px 1px 5px black;
+}
+
+input {
+    color: black;
+}
+
+label {
+    font-weight: 300;
+}
