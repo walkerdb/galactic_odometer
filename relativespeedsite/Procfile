@@ -1,0 +1,1 @@
+web: gunicorn gped:app --log-file=-

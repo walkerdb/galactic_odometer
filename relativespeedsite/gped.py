@@ -1,8 +1,10 @@
-from flask import render_template, flash, redirect, request
+from flask import Flask, render_template, flash, redirect, request
 from datetime import date
-from relativespeedsite import app
 from .forms import DateForm
 from .functions import calculate_facts
+
+app = Flask(__name__)
+app.config.from_object('config')
 
 
 @app.route('/', methods=['GET', 'POST'])
