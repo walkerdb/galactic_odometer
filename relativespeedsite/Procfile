@@ -1,1 +1,1 @@
-web: gunicorn gped:app --log-file=-
+web: gunicorn relativespeedsite:app --log-file=-
