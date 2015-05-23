@@ -5,8 +5,7 @@ from relativespeedsite.functions import calculate_facts
 
 app = Flask(__name__)
 app.config.update(WTF_CSRF_ENABLED = True,
-                  SECRET_KEY = "lol",
-                  DEBUG=True)
+                  SECRET_KEY = "lol")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
