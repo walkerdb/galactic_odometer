@@ -1,3 +1,3 @@
 
-from relativespeedsite import app
+from gped import app
 app.run()
