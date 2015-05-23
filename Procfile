@@ -1,1 +1,1 @@
-web: gunicorn gped:app --log-file=log.txt
+web: gunicorn gped:app
