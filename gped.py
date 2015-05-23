@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, flash
 from datetime import date
 from relativespeedsite.forms import DateForm
 from relativespeedsite.functions import calculate_facts
@@ -15,7 +15,8 @@ def index():
 		facts = calculate_facts(birthdate)
 		return render_template('index.html', facts=facts, form=form)
 	elif request.method == "POST" and not form.validate():
-		pass
+		flash("Please enter numerical values only")
+		return render_template("index.html", form=form)
 	else:
 		return render_template('index.html', form=form)
 

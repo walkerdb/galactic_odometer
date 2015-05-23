@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
 
 {% block home %}
     {% if facts is defined %}
@@ -16,7 +25,7 @@
 {% block data %}
     <h1>Discover your galactic mileage</h1>
     <h2>Enter your birthdate</h2>
-    <form action="" method="post" name="get-date">
+    <form action="" method=post name="get-date">
         {{ form.hidden_tag() }}
         <div class="form-group">
             <label for="birth_day">birth day:</label>
