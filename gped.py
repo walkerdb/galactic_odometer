@@ -5,16 +5,12 @@ from relativespeedsite.functions import calculate_facts
 
 app = Flask(__name__)
 app.config.update(WTF_CSRF_ENABLED = True,
-                  SECRET_KEY = "lol",
-                  DEBUG = True)
+                  SECRET_KEY = "lol")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	form = DateForm()
-	error = None
-	print(form.errors)
 	if form.validate_on_submit():
-
 		try:
 			birthdate = date(int(form.birth_year.data), int(form.birth_month.data), int(form.birth_day.data))
 		except:
