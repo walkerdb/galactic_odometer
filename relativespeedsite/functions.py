@@ -15,11 +15,8 @@ def calculate_facts(birthdate):
 	galaxy_speed = 2100000 * 24
 	cumulative = earth_rot + earth_orbit + sun_orbit + galaxy_rot + galaxy_speed
 
-	try:
-		date0 = birthdate
-	except:
-		date0 = date(1991, 5, 20)
-	date1 = date(2015, 5, 21)
+	date0 = birthdate
+	date1 = date.today()
 	date_delta = date1 - date0
 
 	date_delta_days = date_delta.days

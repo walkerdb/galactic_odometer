@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% block error %}
 {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul class="flashes">
@@ -9,6 +10,7 @@
         </ul>
     {% endif %}
 {% endwith %}
+{% endblock %}
 
 {% block home %}
     {% if facts is defined %}

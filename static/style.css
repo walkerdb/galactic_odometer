@@ -13,6 +13,13 @@ h1, h2 {
     font-size: 1.2em;
 }
 
+.flashes {
+    color: red;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-shadow: 1px 1px 5px black;
+}
+
 .distance {
     font-weight: bold;
     color: #22c122;
