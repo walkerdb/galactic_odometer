@@ -5,37 +5,45 @@
     <title>Your galactic odometer</title>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css')}}"/>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet"  href="{{ url_for('static', filename='sticky-footer-navbar.css')}}" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'/>
 
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                {% block data %}{% endblock %}
-                {% block error %}{% endblock %}
-                {% block home %}{% endblock %}
-            </div>
-            <div class="col-md-3 speed">
-                <br>
-                <h2>Current speed: </h2>
-                <h4>490 miles per second</h4>
-                <h2>Since page load, you have traveled:</h2>
-                <h4><span id="mile_count"></span></h4>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            {% block data %}{% endblock %}
+            {% block error %}{% endblock %}
+            {% block home %}{% endblock %}
+        </div>
+        <div class="col-md-3 speed">
+            <br>
+            <h2>Current speed: </h2>
+            <h4>490 miles per second</h4>
+            <h2>Since page load, you have traveled:</h2>
+            <h4><span id="mile_count"></span></h4>
         </div>
     </div>
+</div>
+
+<footer class="footer">
+    <div class="container-fluid">
+        <p class="text-muted pull-right">Speed data from the article "<a href="http://www.astrosociety.org/edu/publications/tnl/71/howfast.html">How fast are you moving when you are sitting still?</a>" by Andrew Fraknoi.</p>
+    </div>
+</footer>
+
 <script>
 
-var counter=setInterval(timer, 100); //1000 will  run it every 1 second
-var count=0;
-function timer()
-{
-  count=Math.floor(count+(496/10));
+    var counter=setInterval(timer, 100); //1000 will  run it every 1 second
+    var count=0;
+    function timer()
+    {
+        count=Math.floor(count+(496/10));
 
- document.getElementById("mile_count").innerHTML=count + " miles"; // watch for spelling
-}
+        document.getElementById("mile_count").innerHTML=count + " miles"; // watch for spelling
+    }
 </script>
 </body>
 </html>
