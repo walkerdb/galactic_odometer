@@ -16,6 +16,9 @@ body {
   height: 50px;
 }
 
+.footer {
+  text-shadow: 1px 1px 5px black;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
