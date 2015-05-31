@@ -15,7 +15,7 @@ def index():
 	if request.method == "POST" and not form.birth_date.errors:
 		try:
 			print(form.birth_date)
-			birthdate = chronyk.Chronyk(form.birth_date.data, allowfuture=False)
+			birthdate = chronyk.Chronyk(form.birth_date.data.replace(". ", " "), allowfuture=False)
 		except chronyk.DateRangeError:
 			flash("Greetings, time-traveler... Maybe try something more realistic this time.")
 			return render_template("index.html", form=form)
