@@ -1,13 +1,12 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
 from datetime import date
-from relativespeedsite.forms import DateForm, SingleFieldDateForm
+from relativespeedsite.forms import SingleFieldDateForm
 from relativespeedsite.functions import calculate_facts
 import chronyk
 
 app = Flask(__name__)
 app.config.update(WTF_CSRF_ENABLED=True,
-                  SECRET_KEY="lol",
-                  DEBUG=True)
+                  SECRET_KEY="lol")
 
 
 @app.route('/', methods=['GET', 'POST'])
