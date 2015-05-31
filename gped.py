@@ -1,38 +1,40 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
 from datetime import date
-from relativespeedsite.forms import DateForm
+from relativespeedsite.forms import DateForm, SingleFieldDateForm
 from relativespeedsite.functions import calculate_facts
+import chronyk
 
 app = Flask(__name__)
-app.config.update(WTF_CSRF_ENABLED = True,
-                  SECRET_KEY = "lol")
+app.config.update(WTF_CSRF_ENABLED=True,
+                  SECRET_KEY="lol",
+                  DEBUG=True)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	form = DateForm()
-	if form.validate_on_submit():
+	form = SingleFieldDateForm()
+	if request.method == "POST" and not form.birth_date.errors:
 		try:
-			birthdate = date(int(form.birth_year.data), int(form.birth_month.data), int(form.birth_day.data))
-		except:
-			flash("Date not valid (probably too many days in your month) - try something else")
+			print(form.birth_date)
+			birthdate = chronyk.Chronyk(form.birth_date.data, allowfuture=False)
+		except chronyk.DateRangeError:
+			flash("Greetings, time-traveler... Maybe try something more realistic this time.")
 			return render_template("index.html", form=form)
-		if birthdate > date.today():
-			flash("Your date is in the future!")
+		except ValueError:
+			flash("Sorry, I couldn't parse that. Try rephrasing?")
 			return render_template("index.html", form=form)
 
+		birthdate = date.fromtimestamp(birthdate.timestamp())
 		facts = calculate_facts(birthdate)
-		return render_template('index.html', facts=facts, form=form)
-
-	elif request.method == "POST":
-		flash("Please enter numerical values only")
-		errors = [form.birth_day.errors, form.birth_month.errors, form.birth_year.errors]
-		for error in errors:
-			if error:
-				flash(error[0])
-		return render_template('index.html', form=form)
-
+		print(facts)
+		return render_template("index.html", facts=facts, form=form)
+	elif form.birth_date.errors:
+		flash(form.birth_date.errors[0])
+		return render_template("index.html", form=form)
 	else:
-		return render_template('index.html', form=form)
+		print("I failed")
+		return render_template("index.html", form=form)
+
 
 if __name__ == '__main__':
 	app.run()

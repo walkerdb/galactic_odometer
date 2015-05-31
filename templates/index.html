@@ -24,23 +24,33 @@
     {% endif %}
 {% endblock %}
 
+{#{% block data %}#}
+{#    <h1>Discover your galactic mileage</h1>#}
+{#    <h2>Enter your birthdate</h2>#}
+{#    <form action="" method=post name="get-date">#}
+{#        {{ form.hidden_tag() }}#}
+{#        <div class="form-group">#}
+{#            <label for="birth_day">birth day:</label>#}
+{#            {{ form.birth_day(class_="form-control", id="birth_day", placeholder="e.g. 20") }}#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#            <label for="birth_month">birth month</label>#}
+{#            {{ form.birth_month(class_="form-control", id="birth_month", placeholder="e.g. 05") }}#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#            <label for="birth_year">birth year</label>#}
+{#            {{ form.birth_year(class_="form-control", id="birth_year", placeholder="e.g. 1990") }}#}
+{#        </div>#}
+{#        <br><p><button class="btn btn-default" type="submit">Calculate</button></p>#}
+{#    </form>#}
+{#{% endblock %}#}
+
 {% block data %}
     <h1>Discover your galactic mileage</h1>
     <h2>Enter your birthdate</h2>
-    <form action="" method=post name="get-date">
-        {{ form.hidden_tag() }}
-        <div class="form-group">
-            <label for="birth_day">birth day:</label>
-            {{ form.birth_day(class_="form-control", id="birth_day", placeholder="e.g. 20") }}
-        </div>
-        <div class="form-group">
-            <label for="birth_month">birth month</label>
-            {{ form.birth_month(class_="form-control", id="birth_month", placeholder="e.g. 05") }}
-        </div>
-        <div class="form-group">
-            <label for="birth_year">birth year</label>
-            {{ form.birth_year(class_="form-control", id="birth_year", placeholder="e.g. 1990") }}
-        </div>
-        <br><p><button class="btn btn-default" type="submit">Calculate</button></p>
+    <form action="" method="post" name="get-date">
+        <label for="birth_date">birth date</label>
+        {{ form.birth_date(class_="form-control", id="birth_date", placeholder="Enter your birthdate in natural language") }}
+
     </form>
 {% endblock %}

@@ -4,3 +4,4 @@ jinja2==2.7.3
 humanize==0.5.1
 wtforms==2.0.2
 gunicorn==19.3.0
+chronyk==0.9.1
