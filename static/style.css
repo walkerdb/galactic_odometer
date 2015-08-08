@@ -6,10 +6,17 @@ body {
     font-weight: 300;
 }
 
-h1, h2 {
-    font-family: "Crimson text", "serif";
-    font-weight: 400;
+h1, h4 {
+    font-family: "VT323", "sans-serif";
+    font-weight: 900;
 }
+
+h2 {
+    font-family: "Open sans", "sans-serif";
+    font-weight: 100;
+    font-size: 1.4em;
+}
+
 
 h4 {
     font-weight: 400;
@@ -38,10 +45,33 @@ h4 {
     text-shadow: 1px 1px 5px black;
 }
 
+#birth-date {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0px solid white;
+    color: white;
+    font-weight: 400;
+}
+
 input {
     color: black;
 }
 
 label {
     font-weight: 300;
+}
+
+
+#birth-date::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgba(255, 255, 255, 0.50);
+}
+#birth-date:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: rgba(255, 255, 255, 0.50);
+   opacity:  1;
+}
+#birth-date::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: rgba(255, 255, 255, 0.50);
+   opacity:  1;
+}
+#birth-date:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgba(255, 255, 255, 0.50);
 }

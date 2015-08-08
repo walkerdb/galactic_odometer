@@ -7,7 +7,8 @@
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
     <link type="text/css" rel="stylesheet"  href="{{ url_for('static', filename='sticky-footer-navbar.css')}}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'/>
-    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'/>
+{#    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'/>#}
+    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -41,7 +42,7 @@
     var count=0;
     function timer()
     {
-        count=Math.floor(count+(496/10));
+        count = Math.floor(count+(496/10));
 
         document.getElementById("mile_count").innerHTML=count + " miles"; // watch for spelling
     }
